@@ -9,12 +9,12 @@ from .serializers import AdocaoSerializer
 
 
 class AdocaoList(APIView):
-    def get(seçf, request, format=None):
+    def get(self, request, format=None):
         adocoes = Adocao.objects.all()
         serializer = AdocaoSerializer(adocoes, many=True)
         return Response(serializer.data, status=HTTP_200_OK)
 
-    def post(seçf, request, format=None):
+    def post(self, request, format=None):
         serializer = AdocaoSerializer(data=request.data)
         if serializer.is_valid():
             adocao = serializer.save()
